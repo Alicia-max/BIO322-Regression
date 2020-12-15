@@ -30,22 +30,25 @@ The MSE is evaluated on a test set as the method are computed using a training s
 
 The methods implemented can be used to predict valence pleasantness using a dataset with the same predictors as in the initial file "training_data.csv". 
 
-**example : Predict valence pleasantness using the predictors of a given file (test_data) and the boosting tree method of this project : **
+**example : Predict valence pleasantness using the predictors of a given file (test_data) and the boosting tree method of this project, the results are written in a csv file: **
 
-Data.kaggle1<- read.csv(file.path("..","data","test_data.csv"))
+
+Data.prediction<- read.csv(file.path("..","data","test_data.csv"))
 
 lookup <- c("low" = 1, "high" = 0)
 
-Data.kaggle1$Intensity <- lookup[Data.kaggle1$Intensity]
+Data.prediction$Intensity <- lookup[Data.prediction$Intensity]
 
-Data.kaggle<-Data.kaggle1[, colnames(Data.kaggle1)%in%colnames(plea.train.x)]
 
-Data.kaggle.x <- xgb.DMatrix( data.matrix(Data.kaggle), missing = NA)
+Data<-Data.prediction[, colnames(Data.prediction)%in%colnames(plea.train.x)]
 
-pred<-predict(boost.pleas, Data.kaggle.x)
+Data.x <- xgb.DMatrix( data.matrix(Data), missing = NA)
+pred<-predict(boost.pleas, Data.x)
 
-result<- data.frame('Id'=Data.kaggle1$Id, 'VALENCE.PLEASANTNESS' = pred)
+result<- data.frame('Id'=Data.prediction$Id, 'VALENCE.PLEASANTNESS' = pred)
 
 result
 
-write.csv(x=result, 'monprojet.csv', row.names = FALSE ) # report the predicted pleasantness values in a csv file 
+write.csv(x=result, 'monprojet.csv', row.names = FALSE )
+
+
