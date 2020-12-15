@@ -7,8 +7,10 @@ R version used for this project : R version 3.6.1 (2019-07-05)
 
 # installation 
 
-Run jupyler lab 
+Plateform used : jupyler lab 
+
 library used that need to be install : ggplot2, caret, leaps, tree, xgboost, Matrix
+
 DataSet in a csv file : "training_data.csv"
 
 # Organisation 
