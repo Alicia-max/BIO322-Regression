@@ -30,7 +30,7 @@ The MSE is evaluated on a test set as the method are computed using a training s
 
 The methods implemented can be used to predict valence pleasantness using a dataset with the same predictors as in the initial file "training_data.csv". 
 
-**example : Predict valence pleasantness using the predictors of a given file (test_data) and the boosting tree method of this project, the results are written in a csv file: **
+**example : Predict valence pleasantness using the predictors of a given file (test_data) and the boosting tree method of this project, the results are written in a csv file:**
 
 
 Data.prediction<- read.csv(file.path("..","data","test_data.csv"))
