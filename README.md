@@ -51,7 +51,7 @@ result
 
 write.csv(x=result, 'monprojet.csv', row.names = FALSE )
 
-**example : Predict valence pleasantness using the predictors of a given file (test_data) and the boosting tree method of this project, the results are written in a csv file named 'tree.csv' :**
+**example : Predict valence pleasantness using the predictors of a given file (test_data) and the pruuned tree method of this project, the results are written in a csv file named 'tree.csv' :**
 
 
 Data.kaggle1<- read.csv(file.path("..","data","test_data.csv"))
