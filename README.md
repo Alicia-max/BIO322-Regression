@@ -70,4 +70,13 @@ result<- data.frame('Id'=Data.kaggle1$Id, 'VALENCE.PLEASANTNESS' = pred)
 result
 write.csv(x=result, 'tree.csv', row.names = FALSE )
 
+**example : Predict valence pleasantness using the predictors of a given file (test_data) and the tree method of this project, the results are written in a csv file named 'tree.csv' :**
+
+Data.kaggle1<- read.csv(file.path("..","data","test_data.csv"))
+lookup <- c("low" = 1, "high" = 0)
+Data.kaggle1$Intensity <- lookup[Data.kaggle1$Intensity]
+Data.kaggle.x<-Data.kaggle1[, colnames(Data.kaggle1)%in%colnames(data.train.x)]
+pred<-predict(p_tree, Data.kaggle.x)
+result<- data.frame('Id'=Data.kaggle1$Id, 'VALENCE.PLEASANTNESS' = pred)
+write.csv(x=result, 'tree.csv', row.names = FALSE )
 
